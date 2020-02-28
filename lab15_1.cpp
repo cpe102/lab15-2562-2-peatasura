@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
+#include<iomanip>
 using namespace std;
 
 void randData(double *,int,int);
@@ -25,3 +26,77 @@ int main(){
 }
 
 //Write definition of randData(), showData() and findRowSum()
+void randData(double *dPtr,int N,int M)
+{
+	double x;
+	for(int i=0;i<N*M;i++)
+	{
+			double x  = rand()%100 /(double)100;
+			//setprecision(2);
+			*(dPtr+i) = x;	
+	}
+}
+
+void showData(double *dPtr,int N,int M)
+{
+	for(int i=0;  i<N*M; i++){
+		
+		
+		if(i%M==0 && i!=0)
+			{
+				cout << "\n";
+			}
+			cout  << setw(5) << *(dPtr+i) << " ";
+	}
+	cout << "\n";
+}
+void findRowSum(const double *dPtr,double *result,int N,int M){
+
+		 double sum;
+		for(int i=0;i<N;i++){
+		   sum=0;
+		    for(int j=0;j<M;j++){
+				
+                sum += *(dPtr);
+		       	dPtr++;
+		        
+            }
+			  
+			result[i] = sum;
+
+			
+		    
+			
+		}
+	/*	double sum=0;
+		for(int i=0;i<N*M;i++){
+		  
+				
+                sum += *(dPtr);
+				if(i%6==0 && i != 0)
+				{
+					
+					*result = sum;
+					sum=0;
+
+					result++;
+					
+				}
+		       
+		        dPtr++;
+            }
+		/*for(int i=0;i<N*M;i++){
+		  		 double sum=0;
+				   for(int j=0;j<M;j++)
+				   {
+					   sum+= *(dPtr);
+
+				   }
+				result[i]=sum;
+               
+			      
+			
+		}*/
+			      
+
+}
